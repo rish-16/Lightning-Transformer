@@ -1,12 +1,11 @@
 import torch 
 from torch import nn
-import torch.nn.functional as f
 import numpy as np
-import pytorch_lightning as pl
 
-from model import Attention
+from model import Attention, Encoder
 
 mha = Attention(d_model=512, num_heads=8, p=0)
+encoder = Encoder(d_model=512, num_heads=8, conv_hidden_dim=128)
 
 def print_out(Q, K, V):
     temp_out, temp_attn = mha.scaled_dot_product_attention(Q, K, V)

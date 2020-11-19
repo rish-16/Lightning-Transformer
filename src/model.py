@@ -1,9 +1,6 @@
-import os
 import torch
-from torch import nn
 import numpy as np
-import torch.nn.functional as F
-from torch.utils.data import DataLoader
+from torch import nn
 import pytorch_lightning as pl
 
 class Attention(pl.LightningModule):
@@ -71,4 +68,3 @@ class Encoder(pl.LightningModule):
         out2 = self.layernorm2(out1 + cnn_output)
         
         return out2
-
